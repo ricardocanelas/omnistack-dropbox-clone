@@ -1,0 +1,10 @@
+{
+  "name": "@ricardocanelas/rocketseat-omnistack-server",
+  "author": "Ricardo Canelas",
+  "license": "ISC",
+  "version": "0.0.1",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  }
+}
