@@ -8,9 +8,8 @@
     },
     "scripts": {
         "server": "yarn workspace @ricardocanelas/rocketseat-omnistack-server start",
-        "web": "yarn workspace @ricardocanelas/rocketseat-omnistack-web start",
-        "dev": "concurrently -n web,server --kill-others \"yarn web\" \"yarn server\"",
-        "start": "concurrently -n web,server --kill-others \"yarn web\" \"yarn server\""
+        "server:dev": "yarn workspace @ricardocanelas/rocketseat-omnistack-server dev",
+        "dev": "concurrently -n server:dev --kill-others \"yarn server:dev\""
     },
     "dependencies": {
         "concurrently": "^4.1.0"
