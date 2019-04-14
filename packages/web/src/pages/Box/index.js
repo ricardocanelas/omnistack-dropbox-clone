@@ -23,8 +23,9 @@ export default class Box extends Component {
   }
 
   subscribeToNewFiles = () => {
+    const url = process.env.REACT_APP_SERVER_API || 'http://localhost:3001'
     const box = this.props.match.params.id;
-    const io = socket(process.env.REACT_APP_SERVER_API || 'https://localhost:3001');
+    const io = socket(url, {'forceNew': true});
 
     io.emit("connectRoom", box);
     io.on("file", data => {
