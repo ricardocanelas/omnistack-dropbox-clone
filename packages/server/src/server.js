@@ -18,11 +18,6 @@ const app = express();
 
 app.use(cors());
 
-app.use(express.json()); // permite uso de json
-app.use(express.urlencoded({ extended: true})); // permite o envio de arquivo
-app.use('/files', express.static(config.paths.files));
-app.use(require('./routes'));
-
 // ----------
 
 const server = require('http').Server(app);
@@ -39,4 +34,11 @@ app.use((req, res, next) =>{
     next();
 });
 
-app.listen(config.PORT, () => console.log(`Listening on port ${config.PORT}`))
+// ---------
+
+app.use(express.json()); // permite uso de json
+app.use(express.urlencoded({ extended: true})); // permite o envio de arquivo
+app.use('/files', express.static(config.paths.files));
+app.use(require('./routes'));
+
+server.listen(config.PORT, () => console.log(`Listening on port ${config.PORT}`))
