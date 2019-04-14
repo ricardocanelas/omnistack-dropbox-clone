@@ -7,6 +7,6 @@ module.exports = {
         files:  path.resolve(__dirname, '..', '..', 'tmp'),
     },
     database: {
-        uri: 'mongodb+srv://cluster-omni-stack-rocketseat-root:roJMX3RQuGTO9tlV@cluster-omni-stack-rocketseat-lurbm.mongodb.net/test?retryWrites=true',
+        uri: process.env.MONGODB_URI || "",
     }
 }

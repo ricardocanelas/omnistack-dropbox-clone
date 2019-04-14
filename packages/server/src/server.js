@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const config = require('./config/general');
@@ -5,7 +7,12 @@ const mongoose = require('mongoose');
 
 mongoose.connect(config.database.uri,
    { useNewUrlParser: true }
-);
+).then(() => {
+    console.log('MongoDB is connected')
+}).catch(err => {
+    console.log('MongoDB connection unsuccessful');
+    console.log(err)
+});
 
 const app = express();
 
@@ -32,4 +39,4 @@ app.use((req, res, next) =>{
     next();
 });
 
-app.listen(config.PORT);
+app.listen(config.PORT, () => console.log(`Listening on port ${config.PORT}`))
