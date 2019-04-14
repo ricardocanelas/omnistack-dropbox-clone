@@ -1,5 +1,5 @@
 {
-    "name": "rocketseat-omnistack",
+    "name": "@ricardocanelas/rocketseat-omnistack",
     "private": true,
     "workspaces": {
         "packages": [
@@ -7,9 +7,9 @@
         ]
     },
     "scripts": {
-        "server": "yarn workspace @ricardocanelas/rocketseat-omnistack-server start",
-        "server:dev": "yarn workspace @ricardocanelas/rocketseat-omnistack-server dev",
-        "dev": "concurrently -n server:dev --kill-others \"yarn server:dev\""
+        "dev": "concurrently -n dev:server,dev:web --kill-others \"yarn dev:server\" \"yarn dev:web\"",
+        "dev:server": "yarn workspace @ricardocanelas/rocketseat-omnistack-server dev",
+        "dev:web": "yarn workspace @ricardocanelas/rocketseat-omnistack-web start"
     },
     "dependencies": {
         "concurrently": "^4.1.0"
